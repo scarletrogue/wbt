@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+<title>Registration Form</title>
+<style>
+body{
+margin:20px;
+background-color:#f4f4f4;
+}
+table{
+ margin: 0 auto; /* Centers the table horizontally */
+            border-collapse: collapse; /* Optional: For cleaner borders */
+            width: 50%;
+}
+</style>
+</head>
+<body>
+<h1>Registration Form</h1>
+<form>
+<table>
+<tr>
+<th colspan="2">Personal details</th>
+</tr>
+<tr>
+<td>First name:</td>
+<td><input type="text" name="first" placeholder="enter first name"</td>
+</tr>
+<td>Last name:</td>
+<td><input type="text" name="last" placeholder="enter last name"</td>
+</tr>
+<td>Email:</td>
+<td><input type="email" name="email" placeholder="enter email"</td>
+</tr>
+<td>phone:</td>
+<td><input type="number" name="phone" placeholder="enter phone no." minlength=10</td>
+</tr>
+<td>password:</td>
+<td><input type="text" name="password" placeholder="enter password" minlength=8</td>
+</tr>
+<tr>
+<td>Hobbies</td>
+<td>
+<input type="checkbox" name="hobby" value="reading">Reading
+
+<input type="checkbox" name="hobby" value="cooking">Cooking
+
+<input type="checkbox" name="hobby" value="binging">Binging
+</td>
+</tr>
+<tr>
+<td>Gender</td>
+<td>
+<input type="radio" name="gender" value="female">Female
+<br>
+<input type="radio" name="gender" value="male">Male
+</td>
+</tr>
+<tr>
+<td>Country</td>
+<td>
+<select name="country">
+<option value="select">--Select Country--</option>
+<option value="US">USA</option>
+<option value="UK">UK</option>
+<option value="India">India</option>
+</select>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

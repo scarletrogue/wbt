@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+<title>prog 7</title>
+<style>
+.result {
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+</style>
+</head>
+<body>
+<div class="container">
+<h2>convert json to javascript object</h2>
+<textarea id="jsonText" placeholder="enter json text here"></textarea>
+<button onclick="convertjsontoObject()">Convert to obj</button>
+<div id="jsonObject" class="result"></div>
+</div>
+<div class="container">
+<h2>convert json to date</h2>
+<input type="text" id="jsonDate" placeholder="enter date string here">
+<button onclick="convertjsontoDate()">Convert to date</button>
+<div id="dateResult" class="result"></div>
+</div>
+<div class="container">
+<h2>convert json to csv and csv to json</h2>
+<textarea id="jsoncsvText" placeholder="enter json text here"></textarea>
+<button onclick="convertjsontocsv()">Convert to csv</button>
+<div id="csvResult" class="result"></div>
+</div>
+<textarea id="csvjsonText" placeholder="enter csv text here"></textarea>
+<button onclick="convertcsvtojson()">Convert to json</button>
+<div id="jsonResult" class="result"></div>
+</div>
+<div class="container">
+<h2>convert json to date</h2>
+<input type="text" id="stringInput" placeholder="enter string">
+<button onclick="createHash()">Convert to hash</button>
+<div id="hashResult" class="result"></div>
+</div>
+<script>
+//a.
+function convertjsontoObject(){
+const jsonText=document.getElementById('jsonText').value;
+try{
+const obj=JSON.parse(jsonText);
+document.getElementById('jsonObject').innerHTML=JSON.stringify(obj);
+}catch(e){
+document.getElementById('jsonObject').innerHTML='Invalid Json';
+}
+}
+function convertjsontoDate(){
+const jsonDate=document.getElementById('jsonDate').value;
+try{
+const date=new Date(jsonDate);
+document.getElementById('dateResult').innerHTML=date.toString();
+}catch(e){
+document.getElementById('dateResult').innerHTML='Invalid Date';
+}
+}
+function convertjsontocsv(){
+const jsonText=document.getElementById('jsoncsvText').value;
+try{
+    let csv='';
+const jsonData=JSON.parse(jsonText);
+const headers=Object.keys(jsonData[0]);
+csv+=headers.join(',')+'\n';
+for(let i=0;i<jsonData.length;i++)
+{
+const obj=jsonData[i];
+csv+=Object.values(obj).join(',')+'\n';
+}
+document.getElementById('csvResult').textContent=csv;
+}catch(e){
+document.getElementById('csvResult').textContent='Invalid Json';
+}
+}
+function convertcsvtojson(){
+const csvText=document.getElementById('csvjsonText').value;
+const rows=csvText.split('\n');
+const headers=rows[0].split(',');
+const json=[];
+for(let i=1;i<rows.length;i++)
+{
+const row=rows[i].split(',');
+let obj={};
+for(let j=0;j<row.length;j++)
+{
+obj[headers[j]]=row[j];
+}
+json.push(obj);
+}
+document.getElementById('jsonResult').textContent=JSON.stringify(json);
+}
+async function createHash(){
+const text=document.getElementById('stringInput').value;
+const encoder=new TextEncoder();
+const data=encoder.encode(text);
+const hashBuffer=await crypto.subtle.digest('SHA-256',data);
+const hashArray=Array.from(new Uint8Array(hashBuffer));
+const hashHex=hashArray.map(byte=>byte.toString(16).padStart('2',0)).join('');
+document.getElementById('hashResult').textContent=hashHex;
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

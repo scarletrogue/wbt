@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+<title>jquery script eg</title>
+<style>
+body{
+margin:20px;
+}
+.container{
+margin:20px;
+}
+.animate-box{
+height:100px;
+width:100px;
+margin-top:20px;
+background-color:blue;
+}
+.highlight{
+background-color:lightpink;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="container">
+<p id="paragraph">This is a paragraph.</p>
+<button id="append-to-paragraph">Append to paragraph</button>
+</div>
+<div class="container">
+<ul id="list">
+<li>Item 1</li>
+<li>Item 2</li>
+</ul>
+<button id="append-to-list">Append to list</button>
+</div>
+    <div class="container">
+        <button id="animate-box">Animate Box</button>
+        <div class="animate-box"></div>
+    </div>
+<script>
+$(document).ready(function(){
+$('#append-to-paragraph').click(function(){
+$('#paragraph').append('Appended content!');
+});
+
+$('#append-to-list').click(function(){
+$('#list').append('<li> Appended item.</li>');
+});
+
+$('#animate-box').click(function(){
+$('.animate-box').animate({
+height: '200px',
+width: '200px',
+margin: '50px'
+},1000,function(){
+$(this).addClass('highlight');
+});
+});
+});
+</script>
+</body>
+</html>
