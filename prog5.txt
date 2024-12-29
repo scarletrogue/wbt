@@ -6,6 +6,85 @@
     <title>Newspaper Layout</title>
     <link rel="stylesheet" href="style5.css">
 </head>
+<style>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Navigation */
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+a {
+    color: white;
+    font-size: 18px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Main Section */
+main {
+    display: flex;
+    margin: 20px;
+}
+
+section {
+    
+    background-color: #e9ecef;
+    padding: 20px;
+    
+}
+
+aside {
+    
+    background-color: #f8d7da;
+    padding: 20px;
+    
+}
+
+/* Figure */
+figure {
+    text-align: center;
+    
+}
+
+figure img {
+    max-width: 20%;
+   
+}
+
+figcaption {
+    font-size: 14px;
+    color: #555;
+    
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    
+}
+</style>
 <body>
     <header>
         <h1>The Daily Times</h1>
